@@ -1,0 +1,27 @@
+AnnuaireBundle\Entity\Contact:
+    type: entity
+    table: null
+    repositoryClass: AnnuaireBundle\Repository\ContactRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            unique: true
+        surname:
+            type: string
+            length: 255
+        phoneNumber:
+            type: integer
+            unique: true
+        email:
+            type: string
+            length: 255
+            nullable: true
+            unique: true
+    lifecycleCallbacks: {  }

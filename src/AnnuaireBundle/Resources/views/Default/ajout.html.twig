@@ -1,0 +1,17 @@
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Ajouter un nouveau contact</h1>
+
+            {# Début formulaire (ajout ou modification) #}
+			    {{ form_start(form) }}
+                {# Champ du formulaire #}
+				{{ form_row(form.content ) }}
+			   
+                <button type="submit" class="btn btn-success">
+                    <span class="glyphicon glyphicon-plus"></span> Ajouter
+                </button>
+            {# Fin formulaire #}
+            {{ form_end(form) }}
+        </div>
+    </div>

@@ -1,0 +1,28 @@
+{# Pour chaque contact #}
+{% for contact in contacts %}
+<div class="row contact">
+    <div class="col-sm-11">
+        <div class="panel panel-default">
+            <div class="panel-body">
+				{{contact.name}}
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1">
+        <p>
+            {# Bouton d'ajout #}
+            <a href="{{ path('annuaire_add',{'id':todo.id}) }}" class="btn btn-xs btn-warning">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            {# Bouton d'edition #}
+            <a href="{{ path('annuaire_edit',{'id':contact.id}) }}" class="btn btn-xs btn-warning">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
+            {# Bouton de suppression #}
+            <a href="{{path('annuaire_liste',{'id':contact.id})}}" class="btn btn-xs btn-danger">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>
+        </p>
+    </div>
+</div>
+{% endfor %}

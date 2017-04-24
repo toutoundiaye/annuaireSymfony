@@ -1,0 +1,14 @@
+annuaire_homepage:
+    path:     /
+    defaults: { _controller: AnnuaireBundle:Contact:index}
+annuaire_add:
+    path:     /creation
+    defaults: { _controller: AnnuaireBundle:Contact:add}
+annuaire_liste:
+    path:     /liste
+    defaults: { _controller: AnnuaireBundle:Contact:liste}    
+annuaire_edit:
+    path:     /edit/{id}
+    defaults: { _controller: AnnuaireBundle:Contact:edit}
+    requirements:
+        id: \d+ 

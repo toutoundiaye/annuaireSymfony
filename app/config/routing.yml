@@ -1,0 +1,3 @@
+annuaire:
+    resource: "@AnnuaireBundle/Resources/config/routing.yml"
+    prefix:   /
