@@ -11,4 +11,4 @@ annuaire_edit:
     path:     /edit/{id}
     defaults: { _controller: AnnuaireBundle:Contact:edit}
     requirements:
-        id: \d+ 
+        idzé&: \d+ 

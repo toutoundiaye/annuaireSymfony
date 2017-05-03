@@ -1,3 +1,5 @@
+{% block body %}
+<h1>Voici votre liste de contacts</h1>
 {# Pour chaque contact #}
 {% for contact in contacts %}
 <div class="row contact">
@@ -11,7 +13,7 @@
     <div class="col-sm-1">
         <p>
             {# Bouton d'ajout #}
-            <a href="{{ path('annuaire_add',{'id':todo.id}) }}" class="btn btn-xs btn-warning">
+            <a href="{{ path('annuaire_add',{'id':contact.id}) }}" class="btn btn-xs btn-warning">
                 <span class="glyphicon glyphicon-pencil"></span>
             </a>
             {# Bouton d'edition #}
@@ -26,3 +28,4 @@
     </div>
 </div>
 {% endfor %}
+  {% endblock %}

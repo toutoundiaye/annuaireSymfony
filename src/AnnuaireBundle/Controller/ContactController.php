@@ -3,9 +3,10 @@
 namespace AnnuaireBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use AnnuaireBundle\Entity\Contacto;
+use AnnuaireBundle\Entity\Contact;
 use AnnuaireBundle\Form\ContactType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ContactController extends Controller
 {
@@ -35,7 +36,12 @@ class ContactController extends Controller
     {
         $contact = new Contact();
 
-        $form = $this->createForm(new ContactType(), $contact);
+        $form = $this->createForm('AnnuaireBundle\Form\ContactType', $contact)
+                 ->add ('save', new SubmitType(),[
+                     'attr'=>[
+                         'class'=>"btn btn-sm btn-success",
+                     ]
+                 ]);                           
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
@@ -46,11 +52,11 @@ class ContactController extends Controller
             return $this->redirect($this->generateUrl('annuaire_liste'));    
         }
 
-		$contacts = $this->findContacts();
+		//$contacts = $this->findContacts();
 		//$mode = false;
 		
-        return $this->render('AppBundle::ajout.html.twig', [
-		    'contacts' => $contacts, 
+        return $this->render('AnnuaireBundle::ajout.html.twig', [
+		   // 'contacts' => $contacts, 
             'form' => $form->createView(),
 			//'mode'=> $mode,
         ]);

@@ -1,0 +1,20 @@
+.contact {
+    border: 1px solid #1C90F3; 
+    width: 250px;
+}
+
+.contact > .name { 
+    background-color: #1C90F3; color: white;
+    padding: .1em .3em; cursor: pointer;
+}
+
+.contact > .body {
+    padding: .1em .3em; 
+}
+.form input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+  }
+
+.form input.ng-valid.ng-touched {
+    background-color: #78FA89;
+  }

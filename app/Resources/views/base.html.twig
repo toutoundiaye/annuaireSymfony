@@ -1,13 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <--!<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />-->
+
+        <title>{% block title %}Annuaire{% endblock %}</title>
+
+        {% block stylesheets %}
+            <link href="{{ asset('bundles/annuaire/css/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('bundles/annuaire/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+            <link href="{{ asset('bundles/annuaire/css/styles.css') }}" rel="stylesheet">
+        {% endblock %}
+
+        <!--[if lt IE 9]>
+        <script src="{{ asset('bundles/annuaire/js/html5shiv.min.js') }}"></script>
+        <script src="{{ asset('bundles/annuaire/js/respond.min.js') }}"></script>
+        <![endif]-->
     </head>
+
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block body %}
+          {# Navbar #}
+      {{ render(controller('ShopBundle:Layout:navbar', {request: app.request})) }}
+
+    {% include "ShopBundle:Layout:flashes.html.twig" %}
+
+    {# Content #}
+    {% block content %}{% endblock %}
+
+    {# Footer #}
+    {% include "ShopBundle:Layout:footer.html.twig" %}
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('bundles/annuaire/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('bundles/annuaire/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('bundles/annuaire/js/ie10-viewport-bug-workaround.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
